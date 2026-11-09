@@ -1,0 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #061b35;
+  color: #ffffff;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: 104px;
+}
+
+@media (max-width: 1023px) {
+  main {
+    padding-top: 86px;
+  }
+}
