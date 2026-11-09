@@ -154,6 +154,8 @@ export default function Hero({ language }) {
           <div className="hero__portrait-glow" />
 
           <img
+            loading="lazy"
+            onLoad={(event) => event.currentTarget.classList.add('is-loaded')}
             src={heroImages[activeSlide]}
             alt=""
             className="hero__portrait hero__portrait--slide"

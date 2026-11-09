@@ -14,7 +14,7 @@ export default function OurClients() {
       <div className="our-clients__rail-head"><div><span>07 / OUR CLIENTS</span><h2 id="clients-title">Built Together. <em>Grown Together.</em></h2></div><p>{ar ? 'العلامات التجارية والأعمال التي تعاونّا معها.' : "Brands and businesses we've collaborated with."}</p></div>
       <div className="our-clients__rail" ref={rail}>
         <div className="our-clients__rail-track" style={{ animation: `${ar ? 'our-clients-arabic' : 'our-clients-english'} 42s linear infinite` }}>
-          {loopedClients.map((client, index) => <a className="our-clients__rail-card" key={`${client.id}-${index}`} href={client.website || '#'} onClick={(event) => !client.website && event.preventDefault()} target={client.website ? '_blank' : undefined} rel="noopener noreferrer">{client.logo ? <img src={client.logo} alt={client.name} /> : <strong>{client.name}</strong>}<ArrowUpRight className="our-clients__rail-arrow" size={18} /></a>)}
+          {loopedClients.map((client, index) => <a className="our-clients__rail-card" key={`${client.id}-${index}`} href={client.website || '#'} onClick={(event) => !client.website && event.preventDefault()} target={client.website ? '_blank' : undefined} rel="noopener noreferrer">{client.logo ? <img loading="lazy" onLoad={(event) => event.currentTarget.classList.add('is-loaded')} src={client.logo} alt={client.name} /> : <strong>{client.name}</strong>}<ArrowUpRight className="our-clients__rail-arrow" size={18} /></a>)}
         </div>
       </div>
       <footer className="our-clients__rail-footer"><span>{ar ? 'مرّر للاستكشاف' : 'Scroll to explore'}</span><span>YOURTECH®</span></footer>

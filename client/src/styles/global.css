@@ -9,6 +9,29 @@ body {
   color: #ffffff;
 }
 
+/* Shared lazy-image loading treatment */
+img[loading="lazy"] {
+  background: linear-gradient(110deg, rgba(199, 209, 221, 0.08) 8%, rgba(199, 209, 221, 0.22) 18%, rgba(199, 209, 221, 0.08) 33%);
+  background-size: 200% 100%;
+  animation: image-placeholder-shimmer 1.35s linear infinite;
+  transition: opacity .45s ease, filter .45s ease;
+}
+
+img[loading="lazy"]:not(.is-loaded) {
+  opacity: .48;
+  filter: blur(8px);
+}
+
+img[loading="lazy"].is-loaded {
+  opacity: 1;
+  filter: blur(0);
+  animation: none;
+}
+
+@keyframes image-placeholder-shimmer {
+  to { background-position: -200% 0; }
+}
+
 main {
   min-height: 100vh;
   padding-top: 104px;

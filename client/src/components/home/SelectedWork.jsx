@@ -82,7 +82,7 @@ export default function SelectedWork() {
             const isActive = projectIndex === active;
             return (
               <button type="button" key={project.id} className={`selected-work__constellation-card selected-work__constellation-card--${slot} ${slot === 2 ? 'is-active' : ''}`} onClick={() => setActive(projectIndex)} aria-label={content.title}>
-                <img src={project.image} alt="" />
+                <img loading="lazy" onLoad={(event) => event.currentTarget.classList.add('is-loaded')} src={project.image} alt="" />
                 <span>{String(projectIndex + 1).padStart(2, '0')} / {total}</span>
                 <strong>{content.title}</strong>
               </button>

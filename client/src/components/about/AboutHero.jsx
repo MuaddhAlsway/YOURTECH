@@ -112,6 +112,8 @@ const AboutHero = () => {
 
           <div className="about-hero__visual">
             <img
+              loading="lazy"
+              onLoad={(event) => event.currentTarget.classList.add('is-loaded')}
               ref={imageRef}
               src={aboutHeroImage}
               alt="Futuristic Saudi creative portrait"
