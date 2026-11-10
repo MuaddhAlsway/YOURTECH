@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import fashionImage from '../../assets/projects/Fashion.png';
-import tableImage from '../../assets/projects/TheTable.jpeg';
-import mustangImage from '../../assets/projects/MustangGarage.png';
-import trqImage from '../../assets/projects/TRQSTUDIOCOVER.png';
-import lakumImage from '../../assets/projects/lakumCover.png';
+import fashionImage from '../../assets/projects/optimized/Fashion.webp';
+import tableImage from '../../assets/projects/optimized/TheTable.webp';
+import mustangImage from '../../assets/projects/optimized/MustangGarage.webp';
+import trqImage from '../../assets/projects/optimized/TRQSTUDIOCOVER.webp';
+import lakumImage from '../../assets/projects/optimized/lakumCover.webp';
 import tdImage from '../../assets/projects/td.jpeg';
-import authorImage from '../../assets/projects/Authur.png';
-import muImage from '../../assets/projects/MUcommarance.png';
+import authorImage from '../../assets/projects/optimized/Authur.webp';
+import muImage from '../../assets/projects/optimized/MUcommarance.webp';
 import '../../styles/SelectedWork.css';
 
 const projectLibrary = [

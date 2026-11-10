@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import studioImage from '../../assets/Hero010.png';
-import visionImage from '../../assets/Hero02.png';
-import futureImage from '../../assets/Hero03.png';
+import studioImage from '../../assets/optimized/Hero010-desktop.webp';
+import visionImage from '../../assets/optimized/Hero02.webp';
+import futureImage from '../../assets/optimized/Hero03.webp';
 import '../../styles/AboutPreview.css';
 
 const chapters = [

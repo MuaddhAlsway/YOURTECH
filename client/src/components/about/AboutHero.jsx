@@ -4,7 +4,7 @@ import { ArrowDownRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import aboutHeroImage from '../../assets/Hero010.png';
+import aboutHeroImage from '../../assets/optimized/Hero010-desktop.webp';
 import '../../styles/about/AboutHero.css';
 
 gsap.registerPlugin(ScrollTrigger);
