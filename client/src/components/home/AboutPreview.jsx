@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import studioImage from '../../assets/optimized/Hero010-desktop.webp';
+import studioImage640 from '../../assets/optimized/Hero010-preview-640.webp';
+import studioImage960 from '../../assets/optimized/Hero010-preview-960.webp';
 import visionImage from '../../assets/optimized/Hero02.webp';
 import futureImage from '../../assets/optimized/Hero03.webp';
 import '../../styles/AboutPreview.css';
 
 const chapters = [
-  { image: studioImage, en: { tag: '01 / ORIGIN', title: 'Ideas deserve a better beginning.' }, ar: { tag: '٠١ / البداية', title: 'كل فكرة تستحق بداية أفضل.' } },
+  { image: studioImage, srcSet: `${studioImage640} 640w, ${studioImage960} 960w, ${studioImage} 1440w`, en: { tag: '01 / ORIGIN', title: 'Ideas deserve a better beginning.' }, ar: { tag: '٠١ / البداية', title: 'كل فكرة تستحق بداية أفضل.' } },
   { image: visionImage, en: { tag: '02 / METHOD', title: 'Clarity turns ambition into momentum.' }, ar: { tag: '٠٢ / المنهج', title: 'الوضوح يحوّل الطموح إلى زخم.' } },
   { image: futureImage, en: { tag: '03 / FUTURE', title: 'We build what people remember.' }, ar: { tag: '٠٣ / المستقبل', title: 'نبني ما يتذكره الناس.' } },
 ];
@@ -33,7 +35,7 @@ export default function AboutPreview() {
         <header className="about-preview__modern-header"><span>{copy.eyebrow}</span><span>0{active + 1} <i>/</i> 03</span></header>
         <div className="about-preview__modern-grid">
           <div className="about-preview__modern-copy"><span className="about-preview__modern-kicker">{copy.label}</span><h2 id="about-preview-title">{copy.title}<em>{copy.accent}</em></h2><p>{copy.body}</p><Link to="/about" className="about-preview__modern-cta">{copy.cta}<ArrowUpRight size={18} /></Link><div className="about-preview__modern-stats"><strong>10<span>+</span></strong><small>{copy.statOne}</small><strong>24<span>+</span></strong><small>{copy.statTwo}</small></div></div>
-          <div className="about-preview__modern-visual"><div className="about-preview__modern-image-wrap"><img loading="lazy" onLoad={(event) => event.currentTarget.classList.add('is-loaded')} key={chapter.title} src={chapters[active].image} alt="" className="about-preview__modern-image" /><div className="about-preview__modern-image-meta"><span>{chapter.tag}</span><span>YOURTECH®</span></div><div className="about-preview__modern-image-title">{chapter.title}</div></div><div className="about-preview__modern-controls"><button type="button" onClick={() => move(ar ? 1 : -1)} aria-label={copy.next}><ArrowLeft size={18} /></button><button type="button" onClick={() => move(ar ? -1 : 1)} aria-label={copy.next}><ArrowRight size={18} /></button></div></div>
+          <div className="about-preview__modern-visual"><div className="about-preview__modern-image-wrap"><img loading="lazy" onLoad={(event) => event.currentTarget.classList.add('is-loaded')} key={chapter.title} src={chapters[active].image} srcSet={chapters[active].srcSet} sizes="(max-width: 640px) 88vw, (max-width: 1024px) 70vw, 640px" alt="" className="about-preview__modern-image" /><div className="about-preview__modern-image-meta"><span>{chapter.tag}</span><span>YOURTECH®</span></div><div className="about-preview__modern-image-title">{chapter.title}</div></div><div className="about-preview__modern-controls"><button type="button" onClick={() => move(ar ? 1 : -1)} aria-label={copy.next}><ArrowLeft size={18} /></button><button type="button" onClick={() => move(ar ? -1 : 1)} aria-label={copy.next}><ArrowRight size={18} /></button></div></div>
         </div>
         <footer className="about-preview__modern-footer"><div className="about-preview__modern-dots">{chapters.map((item, index) => <button key={item.en.tag} type="button" className={index === active ? 'is-active' : ''} onClick={() => setActive(index)} aria-label={`${copy.next} ${index + 1}`} />)}</div><span>{copy.next}</span><span>STRATEGY / DESIGN / ENGINEERING</span></footer>
       </div>
