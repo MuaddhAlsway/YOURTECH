@@ -162,6 +162,7 @@ function OurProcess({ language = 'en' }) {
 
       const connector = section.querySelector('.op-connector');
       const traveler = section.querySelector('.op-traveler');
+      const connectorLength = connector?.getTotalLength() || 0;
 
       ScrollTrigger.create({
         trigger: board,
@@ -170,9 +171,7 @@ function OurProcess({ language = 'en' }) {
         scrub: 1,
         onUpdate: ({ progress }) => {
           if (!connector || !traveler) return;
-          const point = connector.getPointAtLength(
-            progress * connector.getTotalLength()
-          );
+          const point = connector.getPointAtLength(progress * connectorLength);
           gsap.set(traveler, {
             attr: { cx: point.x, cy: point.y },
           });

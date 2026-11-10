@@ -28,6 +28,14 @@ img[loading="lazy"].is-loaded {
   animation: none;
 }
 
+/* Touch controls stay usable even when constellation cards are visually scaled. */
+.selected-work__constellation-card,
+.selected-work__constellation-actions button {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
 @keyframes image-placeholder-shimmer {
   to { background-position: -200% 0; }
 }

@@ -19,7 +19,7 @@ const projectLibrary = [
   { id: 'lakum', image: lakumImage, url: 'https://lakumartspace.com/', en: { category: 'ARTS / CULTURE', title: 'LAKUM ARTSPACE', tagline: 'Culture made discoverable.', description: 'A platform for exhibitions, events, and artistic content.' }, ar: { category: 'الفنون / الثقافة', title: 'LAKUM ARTSPACE', tagline: 'ثقافة يسهل اكتشافها.', description: 'منصة للمعارض والفعاليات والمحتوى الفني.' } },
   { id: 'td', image: tdImage, url: 'https://tdlogistics.co/', en: { category: 'LOGISTICS', title: 'TD LOGISTICS', tagline: 'Movement, made clear.', description: 'A digital platform for logistics services and customer enquiries.' }, ar: { category: 'الخدمات اللوجستية', title: 'TD لوجستكس', tagline: 'حركة أكثر وضوحاً.', description: 'منصة رقمية للخدمات اللوجستية وطلبات العملاء.' } },
   { id: 'author', image: authorImage, url: 'https://authorfsk.com/', en: { category: 'EDITORIAL / PERSONAL BRAND', title: 'AUTHOR FSK', tagline: 'A personal world in words.', description: 'A personal website for writing, books, and literary identity.' }, ar: { category: 'تحرير / هوية شخصية', title: 'AUTHOR FSK', tagline: 'عالم شخصي من الكلمات.', description: 'موقع شخصي للكتابة والمؤلفات والهوية الأدبية.' } },
-  { id: 'mu', image: muImage, url: '#', en: { category: 'DIGITAL EXPERIENCE', title: 'MU', tagline: 'A new visual language.', description: 'An experimental digital experience from the YourTech archive.' }, ar: { category: 'تجربة رقمية', title: 'MU', tagline: 'لغة بصرية جديدة.', description: 'تجربة رقمية تجريبية من أرشيف يورتيك.' } },
+  { id: 'mu', image: muImage, url: 'https://mu-commerce-frontend.pages.dev/', en: { category: 'DIGITAL EXPERIENCE', title: 'MU', tagline: 'A new visual language.', description: 'An experimental digital experience from the YourTech archive.' }, ar: { category: 'تجربة رقمية', title: 'MU', tagline: 'لغة بصرية جديدة.', description: 'تجربة رقمية تجريبية من أرشيف يورتيك.' } },
 ];
 
 const projects = [
@@ -80,8 +80,9 @@ export default function SelectedWork() {
             const project = projects[projectIndex];
             const content = project[language];
             const isActive = projectIndex === active;
+            const Card = isActive ? 'button' : 'div';
             return (
-              <button type="button" key={project.id} className={`selected-work__constellation-card selected-work__constellation-card--${slot} ${slot === 2 ? 'is-active' : ''}`} onClick={() => setActive(projectIndex)} aria-label={content.title}>
+              <Card type={isActive ? 'button' : undefined} key={project.id} className={`selected-work__constellation-card selected-work__constellation-card--${slot} ${slot === 2 ? 'is-active' : ''}`} onClick={isActive ? undefined : () => setActive(projectIndex)} aria-label={isActive ? content.title : undefined} aria-hidden={!isActive}>
                 <img loading="lazy" onLoad={(event) => event.currentTarget.classList.add('is-loaded')} src={project.image} alt="" />
                 <span>{String(projectIndex + 1).padStart(2, '0')} / {total}</span>
                 <strong>{content.title}</strong>

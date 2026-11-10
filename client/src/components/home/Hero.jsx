@@ -15,6 +15,7 @@ import {
 import heroPortrait from '../../assets/optimized/Hero010-desktop.webp';
 import heroPortraitMobile from '../../assets/optimized/Hero010-mobile.webp';
 import heroPortraitTablet from '../../assets/optimized/Hero010-tablet.webp';
+import heroPortrait800 from '../../assets/optimized/Hero010-800.webp';
 import heroPortrait02 from '../../assets/optimized/Hero02.webp';
 import heroPortrait03 from '../../assets/optimized/Hero03.webp';
 import '../../styles/Hero.css';
@@ -160,8 +161,8 @@ export default function Hero({ language }) {
             decoding="async"
             onLoad={(event) => event.currentTarget.classList.add('is-loaded')}
             src={heroImages[activeSlide]}
-            srcSet={activeSlide === 0 ? `${heroPortraitMobile} 480w, ${heroPortraitTablet} 960w, ${heroPortrait} 1440w` : undefined}
-            sizes="(max-width: 600px) 88vw, (max-width: 1024px) 65vw, 54vw"
+            srcSet={activeSlide === 0 ? `${heroPortraitMobile} 480w, ${heroPortrait800} 800w, ${heroPortraitTablet} 960w, ${heroPortrait} 1440w` : undefined}
+            sizes="(max-width: 600px) 88vw, (max-width: 1024px) 60vw, 54vw"
             alt=""
             className="hero__portrait hero__portrait--slide"
             width="1301"

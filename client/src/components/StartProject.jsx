@@ -54,6 +54,7 @@ export default function StartProject({ language = 'en' }) {
   const panelRef = useRef(null)
   const cardRef = useRef(null)
   const briefRef = useRef(null)
+  const panelBoundsRef = useRef(null)
   const contentRef = useRef(null)
   const ctaRef = useRef(null)
 
@@ -180,7 +181,7 @@ export default function StartProject({ language = 'en' }) {
     const panel = panelRef.current
     if (!panel) return
 
-    const bounds = panel.getBoundingClientRect()
+    const bounds = panelBoundsRef.current || (panelBoundsRef.current = panel.getBoundingClientRect())
     const x = (event.clientX - bounds.left) / bounds.width - 0.5
     const y = (event.clientY - bounds.top) / bounds.height - 0.5
 
@@ -201,6 +202,11 @@ export default function StartProject({ language = 'en' }) {
       ease: 'power2.out',
       overwrite: 'auto',
     })
+  }
+
+  function handlePointerEnter() {
+    if (window.matchMedia('(pointer: coarse)').matches) return
+    if (panelRef.current) panelBoundsRef.current = panelRef.current.getBoundingClientRect()
   }
 
   function handlePointerLeave() {
@@ -225,7 +231,8 @@ export default function StartProject({ language = 'en' }) {
       <div
         ref={panelRef}
         className="start-project__panel"
-        onPointerMove={handlePointerMove}
+      onPointerEnter={handlePointerEnter}
+      onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
       >
         <div className="start-project__grid" aria-hidden="true" />
