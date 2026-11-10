@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import ScrollToTop from './components/ScrollToTop';
+import RouteSEO from './components/RouteSEO';
 
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
@@ -15,6 +16,7 @@ const Terms = lazy(() => import('./components/LegalPage').then(({ default: Legal
 export default function App() {
   return (
     <>
+      <RouteSEO />
       <Navbar />
 
       <main>
