@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, ArrowLeft, Sparkles, MoveUpRight } from 'lucide-react'
 import gsap from 'gsap'
@@ -58,8 +58,6 @@ export default function StartProject({ language = 'en' }) {
   const contentRef = useRef(null)
   const ctaRef = useRef(null)
 
-  const [isHovering, setIsHovering] = useState(false)
-
   const lang = language === 'ar' ? 'ar' : 'en'
   const isArabic = lang === 'ar'
   const t = copy[lang]
@@ -80,7 +78,9 @@ export default function StartProject({ language = 'en' }) {
       '(prefers-reduced-motion: reduce)'
     ).matches
 
-    if (reducedMotion) return
+    const isMobile = window.matchMedia('(max-width: 700px)').matches
+
+    if (reducedMotion || isMobile) return
 
     const ctx = gsap.context(() => {
       const timeline = gsap.timeline({
@@ -305,10 +305,6 @@ export default function StartProject({ language = 'en' }) {
               ref={ctaRef}
               to="/contact"
               className="start-project__cta"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              onFocus={() => setIsHovering(true)}
-              onBlur={() => setIsHovering(false)}
             >
               <span>{t.button}</span>
 

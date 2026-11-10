@@ -337,7 +337,8 @@ export default function ServicesShowcase() {
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section || reducedMotion) return;
+    const isMobile = window.matchMedia('(max-width: 700px)').matches;
+    if (!section || reducedMotion || isMobile) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(

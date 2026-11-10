@@ -99,7 +99,9 @@ function OurProcess({ language = 'en' }) {
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
-    if (reducedMotion) return;
+    const isMobile = window.matchMedia('(max-width: 700px)').matches;
+
+    if (reducedMotion || isMobile) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
