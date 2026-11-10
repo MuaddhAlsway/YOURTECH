@@ -86,7 +86,7 @@ export default function SelectedWork() {
                 <img loading="lazy" onLoad={(event) => event.currentTarget.classList.add('is-loaded')} src={project.image} alt="" />
                 <span>{String(projectIndex + 1).padStart(2, '0')} / {total}</span>
                 <strong>{content.title}</strong>
-              </button>
+              </Card>
             );
           })}
         </div>
