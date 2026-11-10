@@ -45,6 +45,11 @@ main {
   padding-top: 104px;
 }
 
+.home__below-fold--loading {
+  min-height: 3200px;
+  background: #061b35;
+}
+
 .route-loading {
   min-height: 40vh;
   background: #061b35;

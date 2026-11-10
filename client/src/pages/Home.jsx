@@ -1,33 +1,17 @@
 
-import AboutPreview from '../components/home/AboutPreview';
+import { lazy, Suspense } from 'react';
 import Hero from '../components/home/Hero';
-import OurProcess from '../components/home/OurProcess';
-import SelectedWork from '../components/home/SelectedWork';
-import ServicesShowcase from '../components/home/ServicesShowcase';
-import OurClients from '../components/OurClients';
-import Footer from '../components/Footer';
-import StartProject from '../components/StartProject';
+
+const HomeBelowFold = lazy(() => import('./HomeBelowFold'));
 
 export default function Home() {
   return (
     <>
       <Hero />
 
-      <section
-        id="next-section"
-        style={{
-          minHeight: '50vh',
-          background: '#061B35',
-        }}
-      >
-        <AboutPreview/>
-        <ServicesShowcase/>
-        <SelectedWork/>
-        <OurProcess/>
-        <OurClients />
-        <StartProject/>
-      </section>
-      <Footer />
+      <Suspense fallback={<div className="home__below-fold home__below-fold--loading" aria-hidden="true" />}>
+        <HomeBelowFold />
+      </Suspense>
     </>
   );
 }
